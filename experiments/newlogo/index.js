@@ -2,7 +2,7 @@ export default {
   name: 'newlogo',
 
   // Google optimize experiment id
-  experimentID: 'GTM-PP9CQX7',
+  experimentID: '-xC_BXptT66KNItn8MuoEg',
 
   // Implemented variants and their weights
   variants: [
