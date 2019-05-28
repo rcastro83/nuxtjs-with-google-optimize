@@ -1,3 +1,4 @@
 import newLogo from './newlogo/index'
+import image from './image/index'
 
-export default [newLogo]
+export default [newLogo, image]
