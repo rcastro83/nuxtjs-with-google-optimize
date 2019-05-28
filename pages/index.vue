@@ -6,66 +6,30 @@
         googleoptimize
       </h1>
       <div v-if="$exp.name === 'newlogo'">
-        active: {{ $exp.$activeVariants }} - variantIndexes:
-        {{ $exp.$variantIndexes }}
-        EXPERIMENT IS RUNNING!!!!!
+        id: {{ $exp.$experimentIndex }}
+        <control-content v-if="Number($exp.$experimentIndex) === 0" />
+        <variation1-content v-if="Number($exp.$experimentIndex) === 1" />
+        <variation2-content v-if="Number($exp.$experimentIndex) === 2" />
       </div>
       <h2 class="subtitle">
         testing google optimize ab testing
       </h2>
-    </div>
-
-    <div class="container">
-      <h2>It Works!</h2>
-      <h3>Variants:</h3>
-      <table>
-        <tbody>
-          <tr v-for="(variant, index) in $exp.variants" :key="index">
-            <td>{{ index + 1 }}</td>
-            <td>{{ variant.weight }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <h3>Active Variants:</h3>
-      <table>
-        <tbody>
-          <tr v-for="(variant, index) in $exp.$activeVariants" :key="index">
-            <td>{{ index + 1 }}</td>
-            <td>{{ variant.weight }}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Experiment Index:</h3>
-      <div>
-        {{ $exp.$experimentIndex }}
-      </div>
-      <h3>Experiment ID:</h3>
-      <div>
-        {{ $exp.experimentID }}
-      </div>
-      <h3>Max Age:</h3>
-      <div>
-        {{ $exp.maxAge }}
-      </div>
-      <h3>Name:</h3>
-      <div>
-        {{ $exp.name }}
-      </div>
-      <h3>Sections:</h3>
-      <div>
-        {{ $exp.sections }}
-      </div>
     </div>
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import ControlContent from '~/components/ControlContent.vue'
+import Variation1Content from '~/components/Variation1Content.vue'
+import Variation2Content from '~/components/Variation2Content.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    ControlContent,
+    Variation1Content,
+    Variation2Content
   },
   data() {
     return {
