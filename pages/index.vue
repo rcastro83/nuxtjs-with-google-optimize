@@ -5,6 +5,11 @@
       <h1 class="title">
         googleoptimize
       </h1>
+      <div v-if="$exp.name === 'newlogo'">
+        active: {{ $exp.$activeVariants }} - variantIndexes:
+        {{ $exp.$variantIndexes }}
+        EXPERIMENT IS RUNNING!!!!!
+      </div>
       <h2 class="subtitle">
         testing google optimize ab testing
       </h2>

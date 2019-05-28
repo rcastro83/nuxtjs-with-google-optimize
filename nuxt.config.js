@@ -38,11 +38,16 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    'nuxt-google-optimize',
   ],
 
   googleAnalytics: {
     id: 'UA-140928596-1'
+  },
+
+  googleOptimize: {
+    experimentsDir: '~/experiments'
   },
 
   /*
