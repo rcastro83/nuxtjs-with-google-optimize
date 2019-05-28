@@ -6,10 +6,9 @@
         googleoptimize
       </h1>
       <div v-if="$exp.name === 'newlogo'">
-        id: {{ $exp.$experimentIndex }}
-        <control-content v-if="Number($exp.$experimentIndex) === 0" />
-        <variation1-content v-if="Number($exp.$experimentIndex) === 1" />
-        <variation2-content v-if="Number($exp.$experimentIndex) === 2" />
+        <control-content v-if="Number($exp.$variantIndexes[0]) === 0" />
+        <variation1-content v-if="Number($exp.$variantIndexes[0]) === 1" />
+        <variation2-content v-if="Number($exp.$variantIndexes[0]) === 2" />
       </div>
       <h2 class="subtitle">
         testing google optimize ab testing
@@ -36,6 +35,9 @@ export default {
       variantHeadings: ['Row', 'Weight'],
       classNameHeadings: ['Row', 'Class Name']
     }
+  },
+  mounted() {
+    console.log('$exp', this.$exp)
   }
 }
 </script>
