@@ -14,6 +14,52 @@
         testing google optimize ab testing
       </h2>
     </div>
+
+    <div class="container">
+      <h2>It Works!</h2>
+      <h3>Variants:</h3>
+      <table>
+        <tbody>
+          <tr v-for="(variant, index) in $exp.variants">
+            <td>{{ index + 1 }}</td>
+            <td>{{ variant.weight }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Active Variants:</h3>
+      <table>
+        <tbody>
+          <tr v-for="(variant, index) in $exp.$activeVariants">
+            <td>{{ index + 1 }}</td>
+            <td>{{ variant.weight }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Experiment Index:</h3>
+      <div>
+        {{ $exp.$experimentIndex }}
+      </div>
+      <h3>Experiment ID:</h3>
+      <div>
+        {{ $exp.experimentID }}
+      </div>
+      <h3>Max Age:</h3>
+      <div>
+        {{ $exp.maxAge }}
+      </div>
+      <h3>Name:</h3>
+      <div>
+        {{ $exp.name }}
+      </div>
+      <h3>Sections:</h3>
+      <div>
+        {{ $exp.sections }}
+      </div>
+      <div class="button-container">
+        <button @click="wheelOfFortune">Click Here To Test Your Luck!</button>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -23,6 +69,12 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data() {
+    return {
+      variantHeadings: ['Row', 'Weight'],
+      classNameHeadings: ['Row', 'Class Name']
+    }
   }
 }
 </script>
