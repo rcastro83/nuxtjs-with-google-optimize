@@ -6,7 +6,7 @@ export default {
 
   // Implemented variants and their weights
   variants: [
-    { weight: 20 }, // <-- Control
-    { weight: 50 } // <-- Variation 1
+    { weight: 1 }, // <-- Control
+    { weight: 1 } // <-- Variation 1
   ]
 }
