@@ -29,7 +29,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~plugins/ga.js', ssr: false }],
 
   /*
    ** Nuxt.js modules
@@ -38,17 +38,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/google-analytics',
-    'nuxt-google-optimize',
+    'nuxt-google-optimize'
   ],
-
-  googleAnalytics: {
-    id: 'UA-140928596-1'
-  },
-
-  googleOptimize: {
-    experimentsDir: '~/experiments'
-  },
 
   /*
    ** Axios module configuration

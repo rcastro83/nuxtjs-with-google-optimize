@@ -20,7 +20,7 @@
       <h3>Variants:</h3>
       <table>
         <tbody>
-          <tr v-for="(variant, index) in $exp.variants">
+          <tr v-for="(variant, index) in $exp.variants" :key="index">
             <td>{{ index + 1 }}</td>
             <td>{{ variant.weight }}</td>
           </tr>
@@ -29,7 +29,7 @@
       <h3>Active Variants:</h3>
       <table>
         <tbody>
-          <tr v-for="(variant, index) in $exp.$activeVariants">
+          <tr v-for="(variant, index) in $exp.$activeVariants" :key="index">
             <td>{{ index + 1 }}</td>
             <td>{{ variant.weight }}</td>
           </tr>
@@ -55,9 +55,6 @@
       <h3>Sections:</h3>
       <div>
         {{ $exp.sections }}
-      </div>
-      <div class="button-container">
-        <button @click="wheelOfFortune">Click Here To Test Your Luck!</button>
       </div>
     </div>
   </section>
