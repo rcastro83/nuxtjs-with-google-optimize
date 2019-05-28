@@ -2,14 +2,23 @@
   <section class="container">
     <div>
       <logo />
-      <h1 class="title">
-        googleoptimize
-      </h1>
       <div v-if="shouldRunContentTest">
-        <control-content v-if="Number($exp.$variantIndexes[0]) === 0" />
-        <variation1-content v-if="Number($exp.$variantIndexes[0]) === 1" />
-        <variation2-content v-if="Number($exp.$variantIndexes[0]) === 2" />
+        <img
+          v-if="Number($exp.$variantIndexes[0]) === 0"
+          src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzEwNC84MTkvb3JpZ2luYWwvY3V0ZS1raXR0ZW4uanBn"
+        />
+        <img
+          v-if="Number($exp.$variantIndexes[0]) === 1"
+          src="https://cdn1.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"
+        />
+        <img
+          v-if="Number($exp.$variantIndexes[0]) === 2"
+          src="https://files.allaboutbirds.net/wp-content/uploads/2015/06/prow-featured.jpg"
+        />
       </div>
+      <h1 class="title">
+        googleoptimize (route 1)
+      </h1>
       <h2 class="subtitle">
         testing google optimize ab testing
       </h2>
@@ -19,33 +28,22 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import ControlContent from '~/components/ControlContent.vue'
-import Variation1Content from '~/components/Variation1Content.vue'
-import Variation2Content from '~/components/Variation2Content.vue'
 
 export default {
   components: {
-    Logo,
-    ControlContent,
-    Variation1Content,
-    Variation2Content
-  },
-  data() {
-    return {
-      variantHeadings: ['Row', 'Weight'],
-      classNameHeadings: ['Row', 'Class Name']
-    }
+    Logo
   },
   computed: {
     shouldRunContentTest() {
       return (
         this.$exp.isEligible({ route: this.$nuxt.$route }) &&
-        this.$exp.name === 'newlogo'
+        this.$exp.name === 'image'
       )
     }
   },
   mounted() {
     console.log('$exp', this.$exp)
+    console.log('path', this.$nuxt.$route.path)
     console.log(
       'isEligible',
       this.$exp.isEligible({ route: this.$nuxt.$route })
